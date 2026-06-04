@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Joanna &amp; Balázs Wedding — 31 July 2026 · Żeremie Jurki">
+  <title>Joanna &amp; Balázs · 31.07.2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    :root {
+      --white: #ffffff;
+      --off-white: #f2f7f4;
+      --olive: #1a3d2b;
+      --olive-mid: #2d5e40;
+      --olive-pale: #e4f0ea;
+      --gold: #c8a96e;
+      --gold-light: #dfc491;
+      --gold-pale: #f7f1e3;
+      --ink: #0d2018;
+      --ink-muted: #4a6e58;
+      --border: rgba(26,61,43,0.12);
+      --border-gold: rgba(200,169,110,0.28);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Raleway', sans-serif; background: var(--white); color: var(--ink); overflow-x: hidden; }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── SKIP LINK ── */
+    .skip-link {
+      position: absolute; top: -100px; left: 1rem; z-index: 999;
+      background: var(--olive); color: var(--white);
+      padding: 0.5rem 1rem; font-family: 'Raleway', sans-serif; font-size: 0.8rem;
+      transition: top 0.15s;
+    }
+    .skip-link:focus { top: 1rem; outline: 2px solid var(--gold); outline-offset: 2px; }
+
+    /* ── FOCUS STYLES ── */
+    :focus-visible {
+      outline: 2px solid var(--olive);
+      outline-offset: 3px;
+    }
+    button:focus-visible, a:focus-visible {
+      outline: 2px solid var(--olive);
+      outline-offset: 3px;
+    }
+
+    /* ── CURSOR ── */
+    a, button, .masonry-item, .lang-btn, .maps-btn { cursor: pointer; }
+
+    /* ── REDUCED MOTION ── */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 60px; background: rgba(255,255,255,0.93);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 0.5px solid var(--gold);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem;
+    }
+    .nav-monogram {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 1.25rem; color: var(--olive); white-space: nowrap; flex-shrink: 0;
+    }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      font-family: 'Raleway', sans-serif; font-size: 0.75rem;
+      text-transform: uppercase; letter-spacing: 0.2em; color: var(--ink-muted); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--olive); }
+    .nav-lang { display: flex; gap: 0.35rem; flex-shrink: 0; }
+    .lang-btn {
+      font-family: 'Raleway', sans-serif; font-size: 0.63rem; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 0.6rem 0.75rem; min-height: 44px;
+      border: 0.5px solid var(--gold); background: transparent; color: var(--ink-muted);
+      cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s;
+      display: inline-flex; align-items: center;
+    }
+    .lang-btn:hover:not(.active) { color: var(--olive); border-color: var(--olive); }
+    .lang-btn.active { background: var(--olive); color: var(--white); border-color: var(--olive); }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav { padding: 0 1.25rem; }
+    }
+
+    /* ── HERO (full-bleed banner) ── */
+    .hero {
+      position: relative;
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 100vh; padding-top: 60px;
+      overflow: hidden;
+      background: #081a10; /* dark fallback */
+    }
+
+    /* Background photo — swap src to any venue photo; opacity 0.7 as requested */
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('photos/venue_1.jpg') center / cover no-repeat;
+      opacity: 0.7;
+      z-index: 0;
+    }
+
+    /* Dark forest overlay — gradient so left (text) is more readable than right (photo) */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(6, 20, 10, 0.78) 0%,
+        rgba(6, 20, 10, 0.60) 50%,
+        rgba(6, 20, 10, 0.36) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-left {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 5rem 3.5rem 4rem 4.5rem;
+    }
+
+    .hero-label {
+      font-family: 'Cormorant Garamond', serif; font-weight: 400; font-style: normal;
+      font-size: 1.05rem;
+      text-transform: uppercase; letter-spacing: 0.38em; color: var(--gold-light);
+      margin-bottom: 1.6rem;
+      opacity: 0; animation: fadeUp 0.6s ease forwards; animation-delay: 0.1s;
+    }
+    .hero-names {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: clamp(3.8rem, 6.2vw, 7.2rem); color: rgba(255,255,250,0.97); line-height: 1.06;
+      margin-bottom: 1.6rem;
+      opacity: 0; animation: fadeUp 0.6s ease forwards; animation-delay: 0.25s;
+    }
+    .hero-names .amp { color: var(--gold-light); font-size: 0.62em; vertical-align: middle; margin: 0 0.15em; }
+    .hero-rule {
+      width: 60px; height: 0.5px; background: rgba(200,169,110,0.6); border: none;
+      margin-bottom: 1.4rem;
+      opacity: 0; animation: fadeUp 0.6s ease forwards; animation-delay: 0.4s;
+    }
+    .hero-date-text {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.85rem;
+      color: rgba(255,255,250,0.92); margin-bottom: 0.5rem;
+      opacity: 0; animation: fadeUp 0.6s ease forwards; animation-delay: 0.55s;
+    }
+    .hero-location {
+      font-family: 'Raleway', sans-serif; font-size: 0.82rem; font-weight: 300;
+      text-transform: uppercase; letter-spacing: 0.22em; color: rgba(255,255,250,0.58);
+      margin-bottom: 2.8rem;
+      opacity: 0; animation: fadeUp 0.6s ease forwards; animation-delay: 0.55s;
+    }
+    .hero-countdown {
+      display: flex; align-items: flex-start; gap: 0;
+      opacity: 0; animation: fadeUp 0.6s ease forwards; animation-delay: 0.7s;
+    }
+    .countdown-unit { display: flex; flex-direction: column; align-items: center; }
+    .countdown-num {
+      font-family: 'Cormorant Garamond', serif; font-weight: 400;
+      font-size: clamp(3rem, 4.5vw, 4.4rem); color: rgba(255,255,250,0.96);
+      line-height: 1; min-width: 2.2ch; text-align: center;
+    }
+    .countdown-label {
+      font-family: 'Raleway', sans-serif; font-size: 0.72rem; font-weight: 300;
+      text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,250,0.52);
+      margin-top: 0.5rem;
+    }
+    .countdown-sep {
+      font-family: 'Cormorant Garamond', serif; font-size: 2.4rem;
+      color: var(--gold); line-height: 1; padding: 0 0.45rem; padding-top: 0.08rem;
+    }
+
+    /* Hero right — framed couple photo */
+    .hero-right {
+      position: relative; z-index: 2;
+      display: flex; align-items: center; justify-content: center;
+      padding: 4rem 4.5rem 4rem 2rem;
+    }
+
+    /* Portrait rectangle photo frame */
+    .hero-photo-frame {
+      position: relative;
+      width: min(340px, 68%);
+      aspect-ratio: 3 / 4;
+    }
+    .hero-photo-frame img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center center;
+      display: block;
+      opacity: 0; animation: heroPhoto 1.4s ease forwards; animation-delay: 0.3s;
+    }
+    /* Thin champagne outer border */
+    .hero-photo-frame::before {
+      content: '';
+      position: absolute; inset: -15px;
+      border: 1px solid rgba(200,169,110,0.42);
+      z-index: 1; pointer-events: none;
+    }
+    /* Four corner ornaments */
+    .frame-corner {
+      position: absolute; width: 28px; height: 28px;
+      border-color: var(--gold-light); border-style: solid;
+      z-index: 2; pointer-events: none;
+    }
+    .frame-corner:nth-child(1) { top: -23px; left: -23px; border-width: 1px 0 0 1px; }
+    .frame-corner:nth-child(2) { top: -23px; right: -23px; border-width: 1px 1px 0 0; }
+    .frame-corner:nth-child(3) { bottom: -23px; left: -23px; border-width: 0 0 1px 1px; }
+    .frame-corner:nth-child(4) { bottom: -23px; right: -23px; border-width: 0 1px 1px 0; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes heroPhoto {
+      from { opacity: 0; transform: scale(1.04); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: 100svh; padding-top: 60px;
+      }
+      .hero::before {
+        background: rgba(6, 20, 10, 0.65);
+      }
+      .hero-right { order: -1; padding: 4rem 2rem 1.5rem; }
+      .hero-photo-frame { width: min(240px, 62vw); }
+      .hero-left { padding: 2rem 1.75rem 3.5rem; }
+      .hero-names { font-size: clamp(2.8rem, 11vw, 4rem); }
+      .countdown-num { font-size: clamp(2.4rem, 8vw, 3.2rem); }
+    }
+
+    /* ── DIVIDER ── */
+    .gold-rule { width: 60px; height: 0.5px; background: var(--gold); border: none; margin: 1.5rem 0; }
+
+    /* ── OUR STORY ── */
+    #story { background: var(--white); padding: 7rem 2rem; }
+    .story-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+      align-items: start; max-width: 1140px; margin: 0 auto;
+    }
+    .story-photos { position: relative; padding-bottom: 3rem; }
+    .story-photo-main { width: 100%; aspect-ratio: 3/4; object-fit: cover; }
+    .story-photo-accent {
+      position: absolute; bottom: 0; right: -2rem;
+      width: 60%; border: 8px solid var(--white);
+      z-index: 2; box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+    }
+    .story-text { padding-top: 0.5rem; }
+    .story-section-title {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+      color: var(--olive); margin-bottom: 0.25rem;
+    }
+    .story-text p {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 1.28rem; line-height: 1.95; color: var(--ink); margin-bottom: 1.8rem;
+    }
+    .story-text strong { font-style: italic; font-weight: 600; color: var(--olive); }
+    @media (max-width: 768px) {
+      #story { padding: 4rem 1.5rem; }
+      .story-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .story-photo-accent { display: none; }
+      .story-photos { padding-bottom: 0; }
+    }
+
+    /* ── SCHEDULE ── */
+    #schedule { background: var(--off-white); padding: 7rem 2rem; }
+    .schedule-inner { max-width: 580px; margin: 0 auto; }
+    .schedule-title {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+      color: var(--olive); margin-bottom: 3.5rem; text-align: center;
+    }
+    .timeline { position: relative; padding-left: 100px; }
+    .timeline::before {
+      content: ''; position: absolute; left: 90px; top: 8px; bottom: 8px;
+      width: 0.5px; background: var(--gold);
+    }
+    .timeline-item {
+      position: relative; margin-bottom: 3.2rem;
+      opacity: 0; transform: translateX(-16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .timeline-item.visible { opacity: 1; transform: translateX(0); }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-note {
+      margin-top: 3.5rem; padding-top: 2rem;
+      border-top: 0.5px solid var(--border-gold);
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 1.55rem; color: var(--ink-muted); line-height: 1.7;
+    }
+    .timeline-time {
+      position: absolute; left: -100px; top: 4px; width: 80px; text-align: right;
+      font-family: 'Raleway', sans-serif; font-size: 0.9rem;
+      letter-spacing: 0.06em; color: var(--olive-mid);
+    }
+    .timeline-dot {
+      position: absolute; left: -9px; top: 5px;
+      width: 10px; height: 10px; border-radius: 50%; background: var(--gold);
+    }
+    .timeline-content { padding-left: 1.6rem; }
+    .timeline-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.55rem;
+      color: var(--olive); margin-bottom: 0.35rem;
+    }
+    .timeline-desc {
+      font-family: 'Raleway', sans-serif; font-size: 1.05rem;
+      color: var(--ink-muted); line-height: 1.72;
+    }
+
+    /* ── VENUE ── */
+    #venue { background: var(--white); padding: 7rem 2rem; }
+    .venue-top {
+      display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 5rem;
+      max-width: 1140px; margin: 0 auto; align-items: start;
+    }
+    .venue-heading {
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 2.4rem; color: var(--olive); margin-bottom: 0.8rem;
+    }
+    .venue-address {
+      font-family: 'Raleway', sans-serif; font-size: 1rem; color: var(--ink-muted); line-height: 1.9; margin-bottom: 0.4rem;
+    }
+    .venue-location {
+      font-family: 'Raleway', sans-serif; font-size: 0.94rem; color: var(--ink-muted); margin-bottom: 1.3rem;
+    }
+    .venue-description {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 1.2rem; color: var(--ink); line-height: 1.85;
+      margin-bottom: 1.8rem;
+    }
+    .venue-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.6rem; }
+    .tag {
+      font-family: 'Raleway', sans-serif; font-size: 0.67rem;
+      text-transform: lowercase; letter-spacing: 0.04em; padding: 0.22rem 0.75rem;
+      background: var(--olive-pale); color: var(--olive); border: 0.5px solid var(--olive);
+      border-radius: 999px;
+    }
+    .maps-btn {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.65rem 1.2rem; background: var(--olive); color: var(--white);
+      font-family: 'Raleway', sans-serif; font-size: 0.76rem;
+      text-transform: uppercase; letter-spacing: 0.13em; transition: background 0.2s;
+      border-radius: 3px;
+    }
+    .maps-btn:hover { background: var(--olive-mid); }
+    #afterparty .maps-btn {
+      background: transparent; color: var(--off-white);
+      border: 0.5px solid rgba(250,249,246,0.35);
+    }
+    #afterparty .maps-btn:hover { background: rgba(250,249,246,0.08); }
+    .bus-card {
+      background: var(--gold-pale); border-left: 2px solid var(--gold); padding: 1.8rem 1.6rem;
+    }
+    .bus-card-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.9rem; }
+    .bus-icon { font-size: 1.4rem; color: var(--gold); }
+    .bus-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: var(--olive);
+    }
+    .bus-card p {
+      font-family: 'Raleway', sans-serif; font-size: 1rem; color: var(--ink-muted); line-height: 1.75; margin-bottom: 0.8rem;
+    }
+    .badge {
+      display: inline-block; font-family: 'Raleway', sans-serif; font-size: 0.61rem;
+      text-transform: uppercase; letter-spacing: 0.1em; padding: 0.18rem 0.55rem;
+      color: var(--gold); border: 0.5px solid var(--gold-light); background: transparent;
+    }
+    /* Cascading framed photos — right column */
+    .venue-photos-col {
+      position: relative;
+      min-height: 620px;
+    }
+    .venue-frame {
+      position: absolute;
+      width: 185px;
+      aspect-ratio: 3 / 4;
+    }
+    .venue-frame img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center center;
+      display: block;
+    }
+    /* Thin champagne outer border */
+    .venue-frame::before {
+      content: '';
+      position: absolute; inset: -11px;
+      border: 1px solid rgba(200,169,110,0.4);
+      z-index: 1; pointer-events: none;
+    }
+    /* Smaller corner ornaments scaled to frame size */
+    .venue-corner {
+      position: absolute; width: 20px; height: 20px;
+      border-color: var(--gold-light); border-style: solid;
+      z-index: 2; pointer-events: none;
+    }
+    .venue-corner:nth-child(1) { top: -17px; left: -17px; border-width: 1px 0 0 1px; }
+    .venue-corner:nth-child(2) { top: -17px; right: -17px; border-width: 1px 1px 0 0; }
+    .venue-corner:nth-child(3) { bottom: -17px; left: -17px; border-width: 0 0 1px 1px; }
+    .venue-corner:nth-child(4) { bottom: -17px; right: -17px; border-width: 0 1px 1px 0; }
+    /* Cascade positions — compact to match left column height */
+    .venue-frame:nth-of-type(1) { top: 0;    left: 20px;  z-index: 1; }
+    .venue-frame:nth-of-type(2) { top: 185px; left: 145px; z-index: 2; }
+    .venue-frame:nth-of-type(3) { top: 370px; left: 20px;  z-index: 3; }
+    /* Bus card now sits below venue info in the same left column */
+    .bus-card { margin-top: 2rem; }
+    @media (max-width: 768px) {
+      .venue-photos-col {
+        position: static; min-height: unset;
+        display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;
+        margin-top: 2rem;
+      }
+      .venue-frame {
+        position: relative; width: 100%;
+      }
+      .venue-frame:nth-of-type(1),
+      .venue-frame:nth-of-type(2),
+      .venue-frame:nth-of-type(3) {
+        top: auto; left: auto; z-index: auto;
+      }
+      .venue-frame:nth-of-type(3) {
+        grid-column: 1 / -1; width: 60%; justify-self: center;
+      }
+    }
+    @media (max-width: 768px) {
+      #venue { padding: 4rem 1.5rem; }
+      .venue-top { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    /* ── INFO ── */
+    #info { background: var(--off-white); padding: 7rem 2rem; }
+    .info-title {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+      color: var(--olive); margin-bottom: 3rem; text-align: center;
+    }
+    .info-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem; max-width: 1140px; margin: 0 auto;
+    }
+    .info-card {
+      background: var(--off-white); padding: 1.8rem 1.6rem;
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .info-card.visible { opacity: 1; transform: translateY(0); }
+    .info-icon-box {
+      width: 36px; height: 36px; background: var(--olive-pale);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;
+    }
+    .info-icon-box i { font-size: 1.1rem; color: var(--olive); }
+    .info-card-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--olive); margin-bottom: 0.6rem;
+    }
+    .info-card-body {
+      font-family: 'Raleway', sans-serif; font-size: 1.02rem; color: var(--ink-muted); line-height: 1.78;
+    }
+    .info-card-body em { font-style: italic; color: var(--gold); }
+    @media (max-width: 768px) {
+      #info { padding: 4rem 1.5rem; }
+      .info-grid { grid-template-columns: 1fr; }
+      /* Skip scroll animations on mobile — show everything immediately */
+      .timeline-item, .info-card {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .info-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── RSVP ── */
+    #rsvp { background: var(--olive); padding: 7rem 2rem; text-align: center; }
+    .rsvp-title {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: clamp(2rem, 3.5vw, 3rem); color: var(--off-white); margin-bottom: 1.5rem;
+    }
+    .rsvp-text {
+      font-family: 'Raleway', sans-serif; font-size: 1rem;
+      color: rgba(250,249,246,0.78); line-height: 1.9; max-width: 520px; margin: 0 auto 2.5rem;
+    }
+    .rsvp-contacts {
+      display: flex; gap: 3.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;
+    }
+    .rsvp-contact { text-align: center; }
+    .rsvp-name {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 1.1rem; color: var(--off-white); margin-bottom: 0.3rem;
+    }
+    .rsvp-number {
+      font-family: 'Raleway', sans-serif; font-size: 0.9rem;
+      color: var(--gold-light); letter-spacing: 0.05em;
+    }
+    .rsvp-note {
+      font-family: 'Raleway', sans-serif; font-size: 0.73rem;
+      color: rgba(250,249,246,0.48); letter-spacing: 0.04em;
+    }
+    @media (max-width: 768px) {
+      #rsvp { padding: 4rem 1.5rem; }
+      .rsvp-contacts { gap: 2rem; flex-direction: column; align-items: center; }
+    }
+
+    /* ── PASSWORD ── */
+    #password { background: var(--white); padding: 5rem 2rem; text-align: center; }
+    .pw-vline { width: 1px; height: 60px; background: var(--gold); margin: 0 auto 2.5rem; }
+    .pw-title {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem); color: var(--olive); margin-bottom: 0.7rem;
+    }
+    .pw-sub {
+      font-family: 'Raleway', sans-serif; font-size: 0.8rem; color: var(--ink-muted); margin-bottom: 1.8rem;
+    }
+    .pw-form { display: flex; justify-content: center; max-width: 340px; margin: 0 auto; }
+    .pw-input {
+      flex: 1; padding: 0.72rem 1rem; background: var(--off-white);
+      border: 0.5px solid var(--gold); border-right: none;
+      font-family: 'Raleway', sans-serif; font-size: 0.84rem; color: var(--ink);
+      outline: none; transition: border-color 0.2s;
+      border-radius: 3px 0 0 3px;
+    }
+    .pw-input.error { border-color: #b03030; }
+    .pw-input::placeholder { color: var(--ink-muted); }
+    .pw-btn {
+      padding: 0.72rem 1.1rem; background: var(--olive); color: var(--white);
+      font-family: 'Raleway', sans-serif; font-size: 0.7rem;
+      text-transform: uppercase; letter-spacing: 0.15em; border: none; cursor: pointer; transition: background 0.2s;
+      white-space: nowrap; border-radius: 0 3px 3px 0;
+    }
+    .pw-btn:hover { background: var(--olive-mid); }
+    .pw-error {
+      font-family: 'Raleway', sans-serif; font-size: 0.74rem; color: #b03030;
+      margin-top: 0.6rem; display: none;
+    }
+
+    /* ── GALLERY ── */
+    #gallery { display: none; background: var(--off-white); padding: 5rem 2rem; }
+    .gallery-title {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+      color: var(--olive); text-align: center; margin-bottom: 1.2rem;
+    }
+    .gallery-share {
+      text-align: center; margin-top: 3.5rem;
+    }
+    .gallery-share p {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 1.15rem; color: var(--ink-muted); margin-bottom: 1rem;
+    }
+    .gallery-share-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.7rem 1.4rem; background: var(--olive); color: var(--white);
+      font-family: 'Raleway', sans-serif; font-size: 0.78rem;
+      text-transform: uppercase; letter-spacing: 0.14em;
+      text-decoration: none; border-radius: 3px; transition: background 0.2s;
+    }
+    .gallery-share-btn:hover { background: var(--olive-mid); }
+    .masonry {
+      display: flex; align-items: flex-start; gap: 1rem;
+      max-width: 1140px; margin: 0 auto;
+    }
+    .masonry-col { flex: 1; display: flex; flex-direction: column; }
+    .masonry-item { margin-bottom: 1rem; cursor: pointer; }
+    .masonry-item img { width: 100%; display: block; transition: opacity 0.2s; }
+    .masonry-item:hover img { opacity: 0.88; }
+    .masonry-caption {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 0.82rem; color: var(--ink-muted); line-height: 1.5;
+      padding: 0.5rem 0 1rem;
+    }
+    @media (max-width: 768px) {
+      .masonry { flex-wrap: wrap; }
+      .masonry-col { flex: 0 0 calc(50% - 0.5rem); }
+    }
+    @media (max-width: 480px) { .masonry-col { flex: 0 0 100%; } }
+
+    /* Lightbox */
+    .lightbox {
+      display: none; position: fixed; inset: 0; background: rgba(24,26,20,0.96);
+      z-index: 500; align-items: center; justify-content: center;
+      flex-direction: column; padding: 2rem; cursor: pointer;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-height: 78vh; max-width: 88vw; object-fit: contain; cursor: default;
+    }
+    .lightbox-caption {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 0.88rem; color: rgba(250,249,246,0.78); text-align: center;
+      max-width: 600px; margin-top: 1rem; line-height: 1.6; cursor: default;
+    }
+    .lightbox-close {
+      position: absolute; top: 1.4rem; right: 1.4rem;
+      background: none; border: none; color: var(--off-white);
+      font-size: 1.4rem; cursor: pointer; padding: 0.4rem;
+      display: flex; align-items: center;
+    }
+
+    /* ── AFTER PARTY ── */
+    #afterparty { display: none; background: var(--ink); color: var(--off-white); padding: 6rem 2rem; }
+    .ap-title {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: clamp(2.2rem, 3.5vw, 3.2rem); color: var(--off-white); text-align: center; margin-bottom: 3rem;
+    }
+    /* Two-column: left = description + cards stacked, right = photo */
+    .ap-upper {
+      display: grid; grid-template-columns: 1fr 0.65fr; gap: 4rem;
+      max-width: 1100px; margin: 0 auto; align-items: stretch;
+    }
+    .ap-left-col { display: flex; flex-direction: column; gap: 2rem; }
+    .ap-text {
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.3rem;
+      color: rgba(250,249,246,0.80); line-height: 1.9;
+      margin: 0; text-align: left;
+    }
+    .ap-photo {
+      width: 100%; height: 100%;
+      object-fit: contain; object-position: center center;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .ap-upper { grid-template-columns: 1fr; gap: 2rem; }
+      .ap-photo { height: 280px; order: -1; }
+    }
+    .ap-cards {
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .ap-card { border: 0.5px solid rgba(250,249,246,0.12); padding: 1.8rem 1.5rem; }
+    .ap-card i { font-size: 1.4rem; color: var(--gold); margin-bottom: 0.8rem; display: block; }
+    .ap-card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; color: var(--off-white); margin-bottom: 0.5rem; }
+    .ap-card-body { font-family: 'Raleway', sans-serif; font-size: 1rem; color: rgba(250,249,246,0.65); line-height: 1.75; }
+    @media (max-width: 768px) {
+      #afterparty { padding: 4rem 1.5rem; }
+      .ap-cards { grid-template-columns: 1fr; }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--off-white); border-top: 0.5px solid var(--gold);
+      padding: 3rem 2rem; text-align: center;
+    }
+    .footer-names {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem); color: var(--olive); margin-bottom: 0.6rem;
+    }
+    .footer-date {
+      font-family: 'Raleway', sans-serif; font-size: 0.65rem;
+      color: var(--gold); letter-spacing: 0.3em; text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+<a href="#story" class="skip-link">Skip to main content</a>
+
+<!-- ── NAV ── -->
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav-monogram">J &amp; B</div>
+  <div class="nav-links">
+    <a href="#story">
+      <span data-lang="en">Our Story</span>
+      <span data-lang="pl">Nasza Historia</span>
+      <span data-lang="hu">A Mi Történetünk</span>
+    </a>
+    <a href="#schedule">
+      <span data-lang="en">Schedule</span>
+      <span data-lang="pl">Plan Dnia</span>
+      <span data-lang="hu">Program</span>
+    </a>
+    <a href="#venue">
+      <span data-lang="en">Venue</span>
+      <span data-lang="pl">Miejsce</span>
+      <span data-lang="hu">Helyszín</span>
+    </a>
+    <a href="#info">Info</a>
+    <a href="#rsvp">RSVP</a>
+  </div>
+  <div class="nav-lang">
+    <button class="lang-btn active" data-lang-btn="en" aria-label="English" aria-pressed="true">EN</button>
+    <button class="lang-btn" data-lang-btn="pl" aria-label="Polski" aria-pressed="false">PL</button>
+    <button class="lang-btn" data-lang-btn="hu" aria-label="Magyar" aria-pressed="false">HU</button>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="hero" aria-label="Hero">
+  <!-- Background venue photo — swap file to any venue photo you prefer -->
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-left">
+    <div class="hero-label">31 · 07 · 2026</div>
+    <div class="hero-names">Joanna <span class="amp">&amp;</span> Balázs</div>
+    <hr class="hero-rule">
+    <div class="hero-date-text">31.07.2026</div>
+    <div class="hero-location">
+      <span data-lang="en">Żeremie Jurki · Mazowieckie</span>
+      <span data-lang="pl">Żeremie Jurki · Mazowieckie</span>
+      <span data-lang="hu">Żeremie Jurki · Mazóvia</span>
+    </div>
+    <div class="hero-countdown" id="countdown" role="timer" aria-label="Countdown to wedding">
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cd-days">---</span>
+        <span class="countdown-label">
+          <span data-lang="en">days</span>
+          <span data-lang="pl">dni</span>
+          <span data-lang="hu">nap</span>
+        </span>
+      </div>
+      <span class="countdown-sep">·</span>
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cd-hours">--</span>
+        <span class="countdown-label">
+          <span data-lang="en">hours</span>
+          <span data-lang="pl">godz</span>
+          <span data-lang="hu">óra</span>
+        </span>
+      </div>
+      <span class="countdown-sep">·</span>
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cd-mins">--</span>
+        <span class="countdown-label">
+          <span data-lang="en">mins</span>
+          <span data-lang="pl">min</span>
+          <span data-lang="hu">perc</span>
+        </span>
+      </div>
+      <span class="countdown-sep">·</span>
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cd-secs">--</span>
+        <span class="countdown-label">
+          <span data-lang="en">secs</span>
+          <span data-lang="pl">sek</span>
+          <span data-lang="hu">mp</span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo-frame">
+      <span class="frame-corner" aria-hidden="true"></span>
+      <span class="frame-corner" aria-hidden="true"></span>
+      <span class="frame-corner" aria-hidden="true"></span>
+      <span class="frame-corner" aria-hidden="true"></span>
+      <img src="photos/main-photo.jpg" alt="Joanna &amp; Balázs">
+    </div>
+  </div>
+</section>
+
+<!-- ── OUR STORY ── -->
+<section id="story" tabindex="-1">
+  <div class="story-grid">
+    <div class="story-photos">
+      <img src="photos/story-1.jpg" alt="Kilimanjaro" class="story-photo-main">
+      <img src="photos/story-2.jpg" alt="Rome" class="story-photo-accent">
+    </div>
+    <div class="story-text">
+      <h2 class="story-section-title">
+        <span data-lang="en">Our Story</span>
+        <span data-lang="pl">Nasza Historia</span>
+        <span data-lang="hu">A Mi Történetünk</span>
+      </h2>
+      <hr class="gold-rule">
+
+      <p data-lang="en">It started with an Instagram DM, a home-cooked first date, and one <strong>very determined Hungarian</strong>. Then came Thailand — where we accidentally booked holiday in the same place at the same time — three months of quarantine apart, and then, somehow, moving in together like it was the most obvious thing in the world.</p>
+      <p data-lang="en">Since then: two months backpacking Asia, a hurricane in Cuba, <strong>a proposal on the summit of Kilimanjaro</strong>, and approximately one thousand bowls of pho. We are, at our core, two people who are happiest with a backpack, a good meal, and each other. Food, travel, and lots of fun — that's the whole story.</p>
+      <p data-lang="en">Welcome to our wedding — eat well, dance hard, and <strong>please don't bring us flowers</strong>. We already live on 40 square metres with 20 plants.</p>
+
+      <p data-lang="pl">Zaczęło się od wiadomości na Instagramie, kolacji gotowanej na pierwszą randkę i jednego <strong>bardzo zdeterminowanego Węgra</strong>. Potem przyszła Tajlandia — gdzie przypadkowo zarezerwowaliśmy wakacje w tym samym miejscu i czasie — trzy miesiące kwarantanny osobno, a potem, nie wiadomo jak, wprowadzenie się razem, jakby to była najbardziej oczywista rzecz na świecie.</p>
+      <p data-lang="pl">Od tamtej pory: dwa miesiące z plecakami w Azji, huragan na Kubie, <strong>oświadczyny na szczycie Kilimandżaro</strong> i mniej więcej tysiąc misek pho. Jesteśmy, w głębi duszy, dwójką ludzi, którym najlepiej jest z plecakiem, dobrym jedzeniem i sobą nawzajem. Jedzenie, podróże i mnóstwo zabawy — oto cała historia.</p>
+      <p data-lang="pl">Witajcie na naszym weselu — jedzcie dużo, tańczcie mocno i proszę, <strong>nie przynoście nam kwiatów</strong>. Już mieszkamy na 40 metrach kwadratowych z 20 roślinami.</p>
+
+      <p data-lang="hu">Egy Instagram-üzenettel kezdődött, egy házilag főzött első randevúval és egy <strong>nagyon elszánt magyarral</strong>. Aztán jött Thaiföld — ahol véletlenül ugyanoda és ugyanakkor foglaltunk nyaralást — három hónap karantén külön-külön, majd valahogy összeköltöztünk, mintha ez lett volna a legtermészetesebb dolog a világon.</p>
+      <p data-lang="hu">Azóta: két hónap hátizsákos utazás Ázsiában, egy hurrikán Kubában, <strong>lánykérés a Kilimandzsáró csúcsán</strong> és körülbelül ezer tál pho. Alapvetően két ember vagyunk, akik akkor a legboldogabbak, ha van hátizsákjuk, jó étkezés és egymás. Étel, utazás és rengeteg móka — ez az egész történet.</p>
+      <p data-lang="hu">Üdvözlünk az esküvőnkön — egyetek jól, táncoljatok keményen és kérjük, <strong>ne hozzatok nekünk virágot</strong>. Már 40 négyzetméteren élünk 20 növénnyel.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SCHEDULE ── -->
+<section id="schedule">
+  <div class="schedule-inner">
+    <h2 class="schedule-title">
+      <span data-lang="en">The Day</span>
+      <span data-lang="pl">Plan Dnia</span>
+      <span data-lang="hu">A Nap Programja</span>
+    </h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <span class="timeline-time">16:00</span>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-title">
+            <span data-lang="en">Ceremony</span>
+            <span data-lang="pl">Ceremonia</span>
+            <span data-lang="hu">Szertartás</span>
+          </div>
+          <div class="timeline-desc">
+            <span data-lang="en">Outdoor ceremony. Phones away — hearts wide open.</span>
+            <span data-lang="pl">Ślub plenerowy. Telefony do kieszeni, serca szeroko otwarte.</span>
+            <span data-lang="hu">Szabadtéri szertartás. Telefonok zsebbe, szívek nyitva.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-time">17:00</span>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-title">
+            <span data-lang="en">Dinner</span>
+            <span data-lang="pl">Kolacja</span>
+            <span data-lang="hu">Vacsora</span>
+          </div>
+          <div class="timeline-desc">
+            <span data-lang="en">Polish-Hungarian culinary fusion. Eat well — the bimber is coming.</span>
+            <span data-lang="pl">Polsko-węgierska fuzja kulinarna. Jedzcie dużo — bo bimber nadchodzi.</span>
+            <span data-lang="hu">Lengyel-magyar gasztronómiai fúzió. Egyetek jól — a bimber közeleg.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-time">18:00</span>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-title">
+            <span data-lang="en">First dance</span>
+            <span data-lang="pl">Pierwszy taniec</span>
+            <span data-lang="hu">Első tánc</span>
+          </div>
+          <div class="timeline-desc">
+            <span data-lang="en">Let the party begin. We have been practising. Genuinely.</span>
+            <span data-lang="pl">Niech zacznie się impreza. Ćwiczymy. Serio.</span>
+            <span data-lang="hu">Kezdődjön a buli. Tényleg gyakorlunk.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-time">20:00</span>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-title">BBQ</div>
+          <div class="timeline-desc">
+            <span data-lang="en">Forest BBQ. The classics.</span>
+            <span data-lang="pl">Grillowanie w lesie. Klasyka gatunku.</span>
+            <span data-lang="hu">Erdei BBQ. A klasszikusok.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-time">21:00</span>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-title">
+            <span data-lang="en">Cake</span>
+            <span data-lang="pl">Tort</span>
+            <span data-lang="hu">Torta</span>
+          </div>
+          <div class="timeline-desc">
+            <span data-lang="en">Something Polish, traditional and absolutely iconic waits for you here.</span>
+            <span data-lang="pl">Coś polskiego, tradycyjnego i absolutnie kultowego czeka na was.</span>
+            <span data-lang="hu">Valami lengyel, hagyományos és teljesen ikonikus vár rátok.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-time">00:00</span>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-title">
+            <span data-lang="en">Oczepiny &amp; games</span>
+            <span data-lang="pl">Oczepiny i gry</span>
+            <span data-lang="hu">Oczepiny &amp; játékok</span>
+          </div>
+          <div class="timeline-desc">
+            <span data-lang="en">Traditional Polish oczepiny and guest games. The night is long.</span>
+            <span data-lang="pl">Tradycyjne polskie oczepiny i gry dla gości. Noc jest długa.</span>
+            <span data-lang="hu">Hagyományos lengyel oczepiny és vendégjátékok. Az éjszaka hosszú.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="timeline-note">
+      <span data-lang="en">What's not in the timeline? Well, the party itself — get ready, dance hard, play hard, let's celebrate.</span>
+      <span data-lang="pl">Czego nie ma w harmonogramie? Samej imprezy — szykujcie się, tańczcie do upadłego, świętujmy razem.</span>
+      <span data-lang="hu">Mi nincs az időrendben? Maga a buli — készüljetek, táncoljatok keményen, játsszatok keményen, ünnepeljünk.</span>
+    </p>
+
+  </div>
+</section>
+
+<!-- ── VENUE ── -->
+<section id="venue">
+  <div class="venue-top">
+    <!-- Left: venue info + getting there -->
+    <div class="venue-info-col">
+      <h2 class="venue-heading">Żeremie Jurki</h2>
+      <p class="venue-address">Jurki 16D, 05-652 Pniewy</p>
+      <p class="venue-location">
+        <span data-lang="en">Mazovia, Poland · 30 minutes from Warsaw</span>
+        <span data-lang="pl">Mazowieckie, Polska · 30 minut od Warszawy</span>
+        <span data-lang="hu">Mazóvia, Lengyelország · 30 perc Varsótól</span>
+      </p>
+      <div class="venue-tags">
+        <span data-lang="en">
+          <span class="tag">tent</span>
+          <span class="tag">forest</span>
+          <span class="tag">lake</span>
+          <span class="tag">boho</span>
+          <span class="tag">outdoor</span>
+        </span>
+        <span data-lang="pl">
+          <span class="tag">namiot</span>
+          <span class="tag">las</span>
+          <span class="tag">staw</span>
+          <span class="tag">boho</span>
+          <span class="tag">plener</span>
+        </span>
+        <span data-lang="hu">
+          <span class="tag">sátor</span>
+          <span class="tag">erdő</span>
+          <span class="tag">tó</span>
+          <span class="tag">boho</span>
+          <span class="tag">szabadtér</span>
+        </span>
+      </div>
+      <p class="venue-description">
+        <span data-lang="en">Żeremie Jurki is not a wedding hall. It is a piece of land in Mazovia where someone had the very good idea of putting up a beautiful tent and leaving the rest to nature. We chose this place because it felt like us — a little wild, a little beautiful, and very far from a traditional banquet hall. Forest on all sides, a pond nearby, a tent big enough to dance in. No hotel ballroom. No air conditioning. Exactly how we wanted it.</span>
+        <span data-lang="pl">Żeremie Jurki to nie sala weselna. To kawałek ziemi na Mazowszu, gdzie ktoś wpadł na świetny pomysł, by postawić piękny namiot i zostawić resztę naturze. Wybraliśmy to miejsce, bo poczuliśmy, że jest jak my — trochę dzikie, trochę piękne i bardzo dalekie od tradycyjnej sali bankietowej. Las ze wszystkich stron, staw w pobliżu, namiot wystarczająco duży, żeby tańczyć. Żadnej hotelowej sali balowej. Żadnej klimatyzacji. Dokładnie tak, jak chcieliśmy.</span>
+        <span data-lang="hu">A Żeremie Jurki nem esküvői terem. Ez egy mazóviai földterület, ahol valakinek az a zseniális ötlete támadt, hogy felállít egy gyönyörű sátrat, a többit meg rábízza a természetre. Azért választottuk ezt a helyet, mert olyannak éreztük, mint mi — egy kicsit vad, egy kicsit szép, és nagyon messze egy hagyományos lakodalmas teremtől. Mindenfelől erdő, egy tó a közelben, sátor, amiben táncra is elég a hely. Sem szállodai bálterem, sem légkondicionálás. Pontosan ahogy akartuk.</span>
+      </p>
+      <a href="https://maps.google.com/?q=Jurki+16D,+05-652+Pniewy" target="_blank" rel="noopener" class="maps-btn">
+        <i class="ti ti-map-pin"></i>
+        <span data-lang="en">Open in Google Maps</span>
+        <span data-lang="pl">Otwórz w Google Maps</span>
+        <span data-lang="hu">Google Maps</span>
+      </a>
+      <div class="bus-card">
+        <div class="bus-card-header">
+          <i class="ti ti-bus bus-icon"></i>
+          <span class="bus-title">
+            <span data-lang="en">Getting there</span>
+            <span data-lang="pl">Dojazd</span>
+            <span data-lang="hu">Utazás</span>
+          </span>
+        </div>
+        <p data-lang="en">We are organising coaches from Warsaw and Radom. Departure times and pickup points coming soon.</p>
+        <p data-lang="pl">Organizujemy autokary z Warszawy i z Radomia. Szczegóły — godziny i miejsca zbiórki — podamy wkrótce.</p>
+        <p data-lang="hu">Buszokat szervezünk Varsóból és Radomból. Indulási idők és felszállóhelyek hamarosan.</p>
+        <span data-lang="en" class="badge">soon</span>
+        <span data-lang="pl" class="badge">wkrótce</span>
+        <span data-lang="hu" class="badge">hamarosan</span>
+      </div>
+    </div>
+    <!-- Right: cascading framed photos (venue_1 removed) -->
+    <div class="venue-photos-col">
+      <div class="venue-frame">
+        <span class="venue-corner" aria-hidden="true"></span>
+        <span class="venue-corner" aria-hidden="true"></span>
+        <span class="venue-corner" aria-hidden="true"></span>
+        <span class="venue-corner" aria-hidden="true"></span>
+        <img src="photos/venue_2.jpg" alt="Żeremie Jurki">
+      </div>
+      <div class="venue-frame">
+        <span class="venue-corner" aria-hidden="true"></span>
+        <span class="venue-corner" aria-hidden="true"></span>
+        <span class="venue-corner" aria-hidden="true"></span>
+        <span class="venue-corner" aria-hidden="true"></span>
+        <img src="photos/venue_3.jpg" alt="Żeremie Jurki">
+      </div>
+      <div class="venue-frame">
+        <span class="venue-corner" aria-hidden="true"></span>
+        <span class="venue-corner" aria-hidden="true"></span>
+        <span class="venue-corner" aria-hidden="true"></span>
+        <span class="venue-corner" aria-hidden="true"></span>
+        <img src="photos/venue_4.jpg" alt="Żeremie Jurki">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── INFO ── -->
+<section id="info">
+  <h2 class="info-title">
+    <span data-lang="en">Good to know</span>
+    <span data-lang="pl">Warto wiedzieć</span>
+    <span data-lang="hu">Jó tudni</span>
+  </h2>
+  <div class="info-grid">
+
+    <div class="info-card">
+      <div class="info-icon-box"><i class="ti ti-device-mobile-off"></i></div>
+      <div class="info-card-title">
+        <span data-lang="en">Unplugged ceremony</span>
+        <span data-lang="pl">Ceremonia bez telefonów</span>
+        <span data-lang="hu">Telefon nélküli szertartás</span>
+      </div>
+      <div class="info-card-body">
+        <span data-lang="en">Phones away during the ceremony. Our photographer has it covered. Just be present.</span>
+        <span data-lang="pl">Podczas ceremonii prosimy o schowanie telefonów. Fotograf zadba o zdjęcia. Wy skupcie się na przeżywaniu chwili.</span>
+        <span data-lang="hu">A szertartás alatt kérjük tegyétek el a telefonokat. A fotós gondoskodik a képekről. Ti csak legyetek jelen.</span>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-icon-box"><i class="ti ti-hanger"></i></div>
+      <div class="info-card-title">
+        <span data-lang="en">Dress code</span>
+        <span data-lang="pl">Dress code</span>
+        <span data-lang="hu">Oltozet</span>
+      </div>
+      <div class="info-card-body">
+        <span data-lang="en">Wear whatever makes you feel good. Converse, sandals, heels, a polo — your call. <em>We'll be the ones looking amazing.</em></span>
+        <span data-lang="pl">Noś to, w czym czujesz się dobrze. Trampki, sandały, szpilki, polo — rób to co czujesz. <em>My będziemy wyglądać obłędnie.</em></span>
+        <span data-lang="hu">Olyat vegyel fel amiben jol erzed magad. Converse, szandal, magassarku, galleros polo — vagy ami jol esik. <em>Igyis-ugyis mi fogunk a legjobban kinezni.</em></span>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-icon-box"><i class="ti ti-heart"></i></div>
+      <div class="info-card-title">
+        <span data-lang="en">Adults only</span>
+        <span data-lang="pl">Wesele dla dorosłych</span>
+        <span data-lang="hu">Csak felnőtteknek</span>
+      </div>
+      <div class="info-card-body">
+        <span data-lang="en">This is a grown-ups-only celebration. With love, please arrange childcare for the day.</span>
+        <span data-lang="pl">To wyjątkowy dzień dla dorosłych. Z miłością prosimy o zorganizowanie opieki dla dzieci.</span>
+        <span data-lang="hu">Ez egy csak felnőtteknek szóló ünnepség. Szeretettel kérjük, gondoskodjatok a gyerekek felügyeletéről.</span>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-icon-box"><i class="ti ti-salad"></i></div>
+      <div class="info-card-title">
+        <span data-lang="en">Special diet</span>
+        <span data-lang="pl">Dieta specjalna</span>
+        <span data-lang="hu">Speciális étrend</span>
+      </div>
+      <div class="info-card-body">
+        <span data-lang="en">Dietary requirements? Let us know by <strong>June 30th</strong>. After that, there's always bimber.</span>
+        <span data-lang="pl">Masz szczególne wymagania żywieniowe? Daj nam znać do <strong>30 czerwca</strong>. Po tej dacie jesteś zdany na bimber.</span>
+        <span data-lang="hu">Különleges étkezési igényed van? Jelezd <strong>június 30-ig</strong>. Utána már csak a bimber maradt.</span>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-icon-box"><i class="ti ti-bottle"></i></div>
+      <div class="info-card-title">
+        <span data-lang="en">What we're serving</span>
+        <span data-lang="pl">Co pijemy</span>
+        <span data-lang="hu">Mit iszunk</span>
+      </div>
+      <div class="info-card-body">
+        <span data-lang="en">A Polish-Hungarian wedding means bimber and strong Hungarian wine. Eat well — you'll need it.</span>
+        <span data-lang="pl">Polsko-węgierskie wesele: bimber i mocne węgierskie wino. Jedzcie dobrze — będziecie tego potrzebować.</span>
+        <span data-lang="hu">Lengyel-magyar esküvő: bimber és erős magyar bor. Egyetek jól — szükségetek lesz rá.</span>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-icon-box"><i class="ti ti-gift-off"></i></div>
+      <div class="info-card-title">
+        <span data-lang="en">Gifts</span>
+        <span data-lang="pl">Prezenty</span>
+        <span data-lang="hu">Ajándékok</span>
+      </div>
+      <div class="info-card-body">
+        <span data-lang="en">Your presence is the only gift we need. If you insist — no flowers, no books. We have 20 plants, 40m² and read on Kindles.</span>
+        <span data-lang="pl">Wasza obecność to dla nas wszystko. Jeśli jednak koniecznie — bez kwiatów i książek. Mamy 20 roślin, 40 m² i czytamy ebooki.</span>
+        <span data-lang="hu">A jelenlétetek az egyetlen ajándék. Ha mégis ragaszkodtok — virágot és könyvet ne. Van 20 növényünk, 40 m²-ünk és e-könyvet olvasunk.</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── RSVP ── -->
+<section id="rsvp">
+  <h2 class="rsvp-title">
+    <span data-lang="en">See you there</span>
+    <span data-lang="pl">Do zobaczenia</span>
+    <span data-lang="hu">Találkozunk ott</span>
+  </h2>
+  <p class="rsvp-text">
+    <span data-lang="en">Most of you have already confirmed — thank you. If anything has changed or you have questions about diet, transport or anything else, just reach out.</span>
+    <span data-lang="pl">Większość z Was już potwierdziła swoją obecność — dziękujemy serdecznie. Jeśli coś się zmieniło lub macie pytania o dietę, dojazd czy cokolwiek innego — po prostu napiszcie.</span>
+    <span data-lang="hu">A legtöbben már visszajeleztek — köszönjük. Ha valami megváltozott, vagy kérdésetek van, csak írjatok.</span>
+  </p>
+  <div class="rsvp-contacts">
+    <div class="rsvp-contact">
+      <div class="rsvp-name">Joanna</div>
+      <div class="rsvp-number">+48 791 068 116</div>
+    </div>
+    <div class="rsvp-contact">
+      <div class="rsvp-name">Balázs</div>
+      <div class="rsvp-number">+36 70 505 35 07</div>
+    </div>
+  </div>
+  <p class="rsvp-note">
+    <span data-lang="en">Special diet requests — please contact us by June 30th, 2026</span>
+    <span data-lang="pl">Dieta specjalna — prosimy o kontakt do 30 czerwca 2026</span>
+    <span data-lang="hu">Speciális étkezési igények — kérjük jelezzétek 2026. június 30-ig.</span>
+  </p>
+</section>
+
+<!-- ── PASSWORD ── -->
+<section id="password">
+  <div class="pw-vline"></div>
+  <h2 class="pw-title">
+    <span data-lang="en">Want to see more?</span>
+    <span data-lang="pl">Chcesz zobaczyć więcej?</span>
+    <span data-lang="hu">Többet szeretnél látni?</span>
+  </h2>
+  <p class="pw-sub">
+    <span data-lang="en">Got a password? Enter it below.</span>
+    <span data-lang="pl">Masz hasło? Wpisz je poniżej.</span>
+    <span data-lang="hu">Van jelszavad? Írd be alább.</span>
+  </p>
+  <div class="pw-form">
+    <input type="password" class="pw-input" id="pw-input" placeholder="password" autocomplete="off">
+    <button class="pw-btn" id="pw-btn">
+      <span data-lang="en">Enter</span>
+      <span data-lang="pl">Dalej</span>
+      <span data-lang="hu">Belép</span>
+    </button>
+  </div>
+  <div class="pw-error" id="pw-error">
+    <span data-lang="en">Wrong password. Try again.</span>
+    <span data-lang="pl">Złe hasło. Spróbuj ponownie.</span>
+    <span data-lang="hu">Hibás jelszó. Próbáld újra.</span>
+  </div>
+</section>
+
+<!-- ── GALLERY (hidden) ── -->
+<section id="gallery">
+  <h2 class="gallery-title">
+    <span data-lang="en">Our Photos</span>
+    <span data-lang="pl">Nasze Zdjęcia</span>
+    <span data-lang="hu">Fotóink</span>
+  </h2>
+  <div class="masonry" id="masonry">
+
+    <!-- Column 1 — left -->
+    <div class="masonry-col">
+      <div class="masonry-item" data-src="photos/photo-1.jpg" data-caption="We bond over food. He cooked on the first date and bought me completely. The fork-sharing is a daily occurrence. The tongue is a bonus feature." data-caption-pl="Łączy nas jedzenie. Balazs ugotował mi obiad i całkowicie mnie zdobył. Widelec dzielimy codziennie. Język to bonus." data-caption-hu="Az evés köt össze minket. Az első randin főzött nekem, és teljesen levett a lábamról. A villán való osztozás azóta napi szokás. A nyelv csak bónusz funkció.">
+        <img src="photos/photo-1.jpg" alt="" loading="lazy">
+        <div class="masonry-caption">
+          <span data-lang="en">We bond over food. He cooked on the first date and bought me completely. The fork-sharing is a daily occurrence. The tongue is a bonus feature.</span>
+          <span data-lang="pl">Łączy nas jedzenie. Balazs ugotował mi obiad i całkowicie mnie zdobył. Widelec dzielimy codziennie. Język to bonus.</span>
+          <span data-lang="hu">Az evés köt össze minket. Az első randin főzött nekem, és teljesen levett a lábamról. A villán való osztozás azóta napi szokás. A nyelv csak bónusz funkció.</span>
+        </div>
+      </div>
+      <div class="masonry-item" data-src="photos/photo-2.jpg" data-caption="We went to the mountains 'just for a walk'. We have not stopped since. Morskie Oko. The beginning of a very expensive hiking habit." data-caption-pl="Poszliśmy w góry 'tylko na spacer'. Od tamtej pory nie przestaliśmy. Morskie Oko. Początek bardzo kosztownej pasji." data-caption-hu="Elmentünk a hegyekbe „csak egy sétára". Azóta sem álltunk meg. Morskie Oko. Egy nagyon drága szokás kezdete.">
+        <img src="photos/photo-2.jpg" alt="" loading="lazy">
+        <div class="masonry-caption">
+          <span data-lang="en">We went to the mountains 'just for a walk'. We have not stopped since. Morskie Oko. The beginning of a very expensive hiking habit.</span>
+          <span data-lang="pl">Poszliśmy w góry 'tylko na spacer'. Od tamtej pory nie przestaliśmy. Morskie Oko. Początek bardzo kosztownej pasji.</span>
+          <span data-lang="hu">Elmentünk a hegyekbe „csak egy sétára". Azóta sem álltunk meg. Morskie Oko. Egy nagyon drága szokás kezdete.</span>
+        </div>
+      </div>
+      <div class="masonry-item" data-src="photos/photo-3.jpg" data-caption="Kilimanjaro. Seven days. One secret in Balázs's backpack. Neither of us complained. (One of us complained a little.)" data-caption-pl="Kilimandżaro. Siedem dni. Jedna tajemnica w plecaku Balázsa. Żadne z nas nie narzekało. (Jedno trochę narzekało.)" data-caption-hu="Kilimandzsáró. Hét nap. Egy titok Balázs hátizsákjában. Egyikünk sem panaszkodott. Na jó, egyikünk egy kicsit panaszkodott.">
+        <img src="photos/photo-3.jpg" alt="" loading="lazy">
+        <div class="masonry-caption">
+          <span data-lang="en">Kilimanjaro. Seven days. One secret in Balázs's backpack. Neither of us complained. (One of us complained a little.)</span>
+          <span data-lang="pl">Kilimandżaro. Siedem dni. Jedna tajemnica w plecaku Balázsa. Żadne z nas nie narzekało. (Jedno trochę narzekało.)</span>
+          <span data-lang="hu">Kilimandzsáró. Hét nap. Egy titok Balázs hátizsákjában. Egyikünk sem panaszkodott. Na jó, egyikünk egy kicsit panaszkodott.</span>
+        </div>
+      </div>
+      <div class="masonry-item" data-src="photos/photo-4.jpg" data-caption="Mexico. A very well made plan that changed approximately three times once we were already there, covid restrictions included. Zero complaints. We always figure it out." data-caption-pl="Meksyk. Bardzo dobry plan, który zmienił się mniej więcej trzy razy po tym, jak już tam byliśmy, ograniczenia covidowe wliczone. Zero narzekań. Zawsze sobie radzimy." data-caption-hu="Mexikó. Egy nagyon alaposan kidolgozott terv, ami körülbelül háromszor változott meg, miután már ott voltunk — covid-korlátozásokkal együtt. Nulla panasz. Mindig megoldjuk.">
+        <img src="photos/photo-4.jpg" alt="" loading="lazy">
+        <div class="masonry-caption">
+          <span data-lang="en">Mexico. A very well made plan that changed approximately three times once we were already there, covid restrictions included. Zero complaints. We always figure it out.</span>
+          <span data-lang="pl">Meksyk. Bardzo dobry plan, który zmienił się mniej więcej trzy razy po tym, jak już tam byliśmy, ograniczenia covidowe wliczone. Zero narzekań. Zawsze sobie radzimy.</span>
+          <span data-lang="hu">Mexikó. Egy nagyon alaposan kidolgozott terv, ami körülbelül háromszor változott meg, miután már ott voltunk — covid-korlátozásokkal együtt. Nulla panasz. Mindig megoldjuk.</span>
+        </div>
+      </div>
+      <div class="masonry-item" data-src="photos/photo-5.jpg" data-caption="Where it all started. Same airline, same uniform, same flight — and absolutely no idea what was coming." data-caption-pl="Tutaj to wszystko się zaczęło. Ta sama linia lotnicza, ten sam mundur, ten sam lot — i absolutnie żadnego pojęcia o tym, co nadejdzie." data-caption-hu="Itt kezdődött minden. Ugyanaz a légitársaság, ugyanaz az egyenruha, ugyanaz a járat — és fogalmunk sem volt, mi vár ránk.">
+        <img src="photos/photo-5.jpg" alt="" loading="lazy">
+        <div class="masonry-caption">
+          <span data-lang="en">Where it all started. Same airline, same uniform, same flight — and absolutely no idea what was coming.</span>
+          <span data-lang="pl">Tutaj to wszystko się zaczęło. Ta sama linia lotnicza, ten sam mundur, ten sam lot — i absolutnie żadnego pojęcia o tym, co nadejdzie.</span>
+          <span data-lang="hu">Itt kezdődött minden. Ugyanaz a légitársaság, ugyanaz az egyenruha, ugyanaz a járat — és fogalmunk sem volt, mi vár ránk.</span>
+        </div>
+      </div>
+      <div class="masonry-item" data-src="photos/photo-6.jpg" data-caption="Cuba wanted to test us. Hurricane, evacuation, 48 hours in a Havana Airbnb — no AC, barely any food, world shaking outside the windows. We sat on this beach first and it was absolutely worth it. 10 out of 10, would do again." data-caption-pl="Kuba chciała nas sprawdzić. Huragan, ewakuacja, 48 godzin w hawańskim Airbnb — bez klimatyzacji, prawie bez jedzenia, świat trzęsący się za oknami. Najpierw siedzieliśmy na tej plaży i było absolutnie warto. 10 na 10, zrobiłabym to znowu." data-caption-hu="Kuba próbára tett minket. Hurrikán, evakuálás, 48 óra egy havannai Airbnb-ben — légkondi nélkül, alig valamennyi ennivalóval, miközben a világ remegett az ablakok mögött. Előtte ezen a strandon ültünk, és teljesen megérte. 10/10, újra megcsinálnánk.">
+        <img src="photos/photo-6.jpg" alt="" loading="lazy">
+        <div class="masonry-caption">
+          <span data-lang="en">Cuba wanted to test us. Hurricane, evacuation, 48 hours in a Havana Airbnb — no AC, barely any food, world shaking outside the windows. We sat on this beach first and it was absolutely worth it. 10 out of 10, would do again.</span>
+          <span data-lang="pl">Kuba chciała nas sprawdzić. Huragan, ewakuacja, 48 godzin w hawańskim Airbnb — bez klimatyzacji, prawie bez jedzenia, świat trzęsący się za oknami. Najpierw siedzieliśmy na tej plaży i było absolutnie warto. 10 na 10, zrobiłabym to znowu.</span>
+          <span data-lang="hu">Kuba próbára tett minket. Hurrikán, evakuálás, 48 óra egy havannai Airbnb-ben — légkondi nélkül, alig valamennyi ennivalóval, miközben a világ remegett az ablakok mögött. Előtte ezen a strandon ültünk, és teljesen megérte. 10/10, újra megcsinálnánk.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Column 2 — middle -->
+    <div class="masonry-col">
+      <div class="masonry-item" data-src="photos/photo-14.jpg" data-caption="Last night of two months in Asia. Helmets on, nowhere to be, absolutely not ready to go home. We went home anyway. We are still not over it." data-caption-pl="Ostatnia noc dwumiesięcznej podróży w Azji. Robimy to co lubimy najbardziej - jazda nocą po wyspie. Łza się kręci w oku na myśl o powrocie, chcemy tu zostać. Wrócimy. Na dłużej." data-caption-hu="Az ázsiai két hónap utolsó éjszakája. Sisakok fel, sehova sem sietünk, és egyáltalán nem állunk készen hazamenni. Mégis hazamentünk. Azóta sem hevertük ki.">
+        <img src="photos/photo-14.jpg" alt="" loading="lazy">
+        <div class="masonry-caption">
+          <span data-lang="en">Last night of two months in Asia. Helmets on, nowhere to be, absolutely not ready to go home. We went home anyway. We are still not over it.</span>
+          <span data-lang="pl">Ostatnia noc dwumiesięcznej podróży w Azji. Robimy to co lubimy najbardziej - jazda nocą po wyspie. Łza się kręci w oku na myśl o powrocie, chcemy tu zostać. Wrócimy. Na dłużej.</span>
+          <span data-lang="hu">Az ázsiai két hónap utolsó éjszakája. Sisakok fel, sehova sem sietünk, és egyáltalán nem állunk készen hazamenni. Mégis hazamentünk. Azóta sem hevertük ki.</span>
+        </div>
+      </div>
+      <div class="masonry-item" data-src="photos/photo-15.jpg" data-caption="The summit of Kilimanjaro. One of Joanna's biggest dreams. Balázs made it to the top to make it happen — and then got down on one knee. He came prepared." data-caption-pl="Szczyt Kilimandżaro. Jedno z największych marzeń Joanny. Balázs dotarł na szczyt, żeby to spełnić — a potem ukląkł. Był przygotowany." data-caption-hu="A Kilimandzsáró csúcsa. Joanna egyik legnagyobb álma. Balázs felment vele a világ tetejére, hogy valóra váltsa — aztán féltérdre ereszkedett. Felkészülten érkezett.">
+        <img src="photos/photo-15.jpg" alt="" loading="lazy">
+        <div class="masonry-caption">
+          <span data-lang="en">The summit of Kilimanjaro. One of Joanna's biggest dreams. Balázs made it to the top to make it happen — and then got down on one knee. He came prepared.</span>
+          <span data-lang="pl">Szczyt Kilimandżaro. Jedno z największych marzeń Joanny. Balázs dotarł na szczyt, żeby to spełnić — a potem ukląkł. Był przygotowany.</span>
+          <span data-lang="hu">A Kilimandzsáró csúcsa. Joanna egyik legnagyobb álma. Balázs felment vele a világ tetejére, hogy valóra váltsa — aztán féltérdre ereszkedett. Felkészülten érkezett.</span>
+        </div>
+      </div>
+      <div class="masonry-item" data-src="photos/photo-16.jpg" data-caption="The proposal. At the top of the world. Joanna was cold, exhausted and completely euphoric. There is a video of what happened next. It involves the ugliest, most beautiful crying you have ever seen. It stays in the vault." data-caption-pl="Oświadczyny. Na szczycie Afryki.Byliśmy zmarznięci, wyczerpani i przeszczęśliwi. Jest nagranie tego, co wydarzyło się potem. Zawiera najbrzydszy i najpiękniejszy płacz, jaki kiedykolwiek widzieliście. Nie nadaje się na pokazanie tego światu." data-caption-hu="A lánykérés. A világ tetején. Joanna fázott, kimerült volt, és teljesen euforikus. Van egy videó arról, mi történt utána. A legrondább, legszebb sírás van rajta, amit valaha láttál. A széfben marad.">
+        <img src="photos/photo-16.jpg" alt="" loading="lazy">
+        <div class="masonry-caption">
+          <span data-lang="en">The proposal. At the top of the world. Joanna was cold, exhausted and completely euphoric. There is a video of what happened next. It involves the ugliest, most beautiful crying you have ever seen. It stays in the vault.</span>
+          <span data-lang="pl">Oświadczyny. Na szczycie Afryki.Byliśmy zmarznięci, wyczerpani i przeszczęśliwi. Jest nagranie tego, co wydarzyło się potem. Zawiera najbrzydszy i najpiękniejszy płacz, jaki kiedykolwiek widzieliście. Nie nadaje się na pokazanie tego światu.</span>
+          <span data-lang="hu">A lánykérés. A világ tetején. Joanna fázott, kimerült volt, és teljesen euforikus. Van egy videó arról, mi történt utána. A legrondább, legszebb sírás van rajta, amit valaha láttál. A széfben marad.</span>
+        </div>
+      </div>
+      <div class="masonry-item" data-src="photos/photo-17.jpg" data-caption="We have been practising since this photo was taken. See you on the dance floor on July 31st." data-caption-pl="Ćwiczymy od czasu zrobienia tego zdjęcia. Do zobaczenia na parkiecie 31 lipca." data-caption-hu="Azóta gyakorolunk, mióta ez a fotó készült. Találkozunk a táncparketten július 31-én.">
+        <img src="photos/photo-17.jpg" alt="" loading="lazy">
+        <div class="masonry-caption">
+          <span data-lang="en">We have been practising since this photo was taken. See you on the dance floor on July 31st.</span>
+          <span data-lang="pl">Ćwiczymy od czasu zrobienia tego zdjęcia. Do zobaczenia na parkiecie 31 lipca.</span>
+          <span data-lang="hu">Azóta gyakorolunk, mióta ez a fotó készült. Találkozunk a táncparketten július 31-én.</span>
+        </div>
+      </div>
+      <div class="masonry-item" data-src="photos/photo-18.jpg" data-caption="Every scooter we rented in Asia was broken in a completely unique way. No speedometer. No fuel gauge. No horn — which in Vietnam is essentially no brakes. This one was no exception. We loved every second." data-caption-pl="Każdy skuter, który wypożyczyliśmy w Azji, był zepsuty na zupełnie wyjątkowy sposób. Bez prędkościomierza. Bez wskaźnika paliwa. Bez klaksonu — co w Wietnamie oznacza w zasadzie brak hamulców. Ten nie był wyjątkiem. Każdą sekundę pokochaliśmy." data-caption-hu="Minden motor, amit Ázsiában béreltünk, a maga egyedi módján volt elromolva. Nem volt sebességmérő. Nem volt üzemanyag-jelző. Nem volt duda — ami Vietnámban lényegében azt jelenti, hogy fék sincs. Ez sem volt kivétel. Minden pillanatát imádtuk.">
+        <img src="photos/photo-18.jpg" alt="" loading="lazy">
+        <div class="masonry-caption">
+          <span data-lang="en">Every scooter we rented in Asia was broken in a completely unique way. No speedometer. No fuel gauge. No horn — which in Vietnam is essentially no brakes. This one was no exception. We loved every second.</span>
+          <span data-lang="pl">Każdy skuter, który wypożyczyliśmy w Azji, był zepsuty na zupełnie wyjątkowy sposób. Bez prędkościomierza. Bez wskaźnika paliwa. Bez klaksonu — co w Wietnamie oznacza w zasadzie brak hamulców. Ten nie był wyjątkiem. Każdą sekundę pokochaliśmy.</span>
+          <span data-lang="hu">Minden motor, amit Ázsiában béreltünk, a maga egyedi módján volt elromolva. Nem volt sebességmérő. Nem volt üzemanyag-jelző. Nem volt duda — ami Vietnámban lényegében azt jelenti, hogy fék sincs. Ez sem volt kivétel. Minden pillanatát imádtuk.</span>
+        </div>
+      </div>
+      <div class="masonry-item" data-src="photos/photo-12.jpg" data-caption="He looked confused. She looked amazing. This is accurate to most situations." data-caption-pl="On wyglądał na zdezorientowanego. Ona wyglądała niesamowicie. To dokładne odwzorowanie większości sytuacji." data-caption-hu="Balázs zavartnak tűnt. Joanna lenyűgözően nézett ki. Ez nagyjából a legtöbb helyzet pontos leírása.">
+        <img src="photos/photo-12.jpg" alt="" loading="lazy">
+        <div class="masonry-caption">
+          <span data-lang="en">He looked confused. She looked amazing. This is accurate to most situations.</span>
+          <span data-lang="pl">On wyglądał na zdezorientowanego. Ona wyglądała niesamowicie. To dokładne odwzorowanie większości sytuacji.</span>
+          <span data-lang="hu">Balázs zavartnak tűnt. Joanna lenyűgözően nézett ki. Ez nagyjából a legtöbb helyzet pontos leírása.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Column 3 — rightmost -->
+    <div class="masonry-col">
+      <div class="masonry-item" data-src="photos/photo-7.jpg" data-caption="Snorkeling with turtles in Mexico. We are water people, beach people, animal people. The list of beaches we still plan to visit is longer than the guest list at this wedding." data-caption-pl="Nurkowanie z żółwiami w Meksyku. Kochamy  wode, plaże, zwierzęta. Lista plaż, które jeszcze planujemy odwiedzić, jest dłuższa niż lista gości na tym weselu." data-caption-hu="Snorkelezés teknősökkel Mexikóban. Vízi emberek, strand emberek, állat rajongók vagyunk. A tengerpartok listája, ahová még el akarunk jutni, hosszabb, mint az esküvői vendéglista.">
+        <img src="photos/photo-7.jpg" alt="" loading="lazy">
+        <div class="masonry-caption">
+          <span data-lang="en">Snorkeling with turtles in Mexico. We are water people, beach people, animal people. The list of beaches we still plan to visit is longer than the guest list at this wedding.</span>
+          <span data-lang="pl">Nurkowanie z żółwiami w Meksyku. Kochamy  wode, plaże, zwierzęta. Lista plaż, które jeszcze planujemy odwiedzić, jest dłuższa niż lista gości na tym weselu.</span>
+          <span data-lang="hu">Snorkelezés teknősökkel Mexikóban. Vízi emberek, strand emberek, állat rajongók vagyunk. A tengerpartok listája, ahová még el akarunk jutni, hosszabb, mint az esküvői vendéglista.</span>
+        </div>
+      </div>
+      <div class="masonry-item" data-src="photos/photo-8.jpg" data-caption="Mazury, Poland. Two people who travel the world but keep coming back to a kayak on a Polish lake. Some things just work." data-caption-pl="Mazury. Dwoje ludzi, którzy podróżują po świecie, ale ciągle wracają na kajak na polskich wodach. Niektóre rzeczy się nie zmieniają." data-caption-hu="Mazúria, Lengyelország. Két ember, akik bejárják a világot, de mindig visszatérnek egy kajakozásra egy lengyel tavon. Vannak dolgok, amik egyszerűen működnek.">
+        <img src="photos/photo-8.jpg" alt="" loading="lazy">
+        <div class="masonry-caption">
+          <span data-lang="en">Mazury, Poland. Two people who travel the world but keep coming back to a kayak on a Polish lake. Some things just work.</span>
+          <span data-lang="pl">Mazury. Dwoje ludzi, którzy podróżują po świecie, ale ciągle wracają na kajak na polskich wodach. Niektóre rzeczy się nie zmieniają.</span>
+          <span data-lang="hu">Mazúria, Lengyelország. Két ember, akik bejárják a világot, de mindig visszatérnek egy kajakozásra egy lengyel tavon. Vannak dolgok, amik egyszerűen működnek.</span>
+        </div>
+      </div>
+      <div class="masonry-item" data-src="photos/photo-9.jpg" data-caption="Rome. Our first trip together. We got completely soaking wet exploring the Colosseum and had the best time. Balázs didn't complain once. When we got back he dried her shoes with a hairdryer. Joanna knew then." data-caption-pl="Rzym. Nasza pierwsza wspólna podróż. Przemokliśmy do suchej nitki zwiedzając Koloseum i mimo to świetnie się bawilimy. Po powrocie Balázs złapał za suszarkę, żeby wysuszyć Asi buty. To był pierwszy znak, że może z tego wyjść coś poważnego." data-caption-hu="Róma. Az első közös utazásunk. Bőrig áztunk, miközben a Colosseumot fedeztük fel, és közben remekül szórakoztunk. Balázs egyszer sem panaszkodott. Amikor hazaértünk, hajszárítóval szárította a cipőjét. Joanna akkor tudta hogy megtalálta az igazit.">
+        <img src="photos/photo-9.jpg" alt="" loading="lazy">
+        <div class="masonry-caption">
+          <span data-lang="en">Rome. Our first trip together. We got completely soaking wet exploring the Colosseum and had the best time. Balázs didn't complain once. When we got back he dried her shoes with a hairdryer. Joanna knew then.</span>
+          <span data-lang="pl">Rzym. Nasza pierwsza wspólna podróż. Przemokliśmy do suchej nitki zwiedzając Koloseum i mimo to świetnie się bawilimy. Po powrocie Balázs złapał za suszarkę, żeby wysuszyć Asi buty. To był pierwszy znak, że może z tego wyjść coś poważnego.</span>
+          <span data-lang="hu">Róma. Az első közös utazásunk. Bőrig áztunk, miközben a Colosseumot fedeztük fel, és közben remekül szórakoztunk. Balázs egyszer sem panaszkodott. Amikor hazaértünk, hajszárítóval szárította a cipőjét. Joanna akkor tudta hogy megtalálta az igazit.</span>
+        </div>
+      </div>
+      <div class="masonry-item" data-src="photos/photo-10.jpg" data-caption="He is calm, funny and super caring. He is also completely unconscious within seven minutes of any car journey. Standard operating procedure. We balance each other out." data-caption-pl="Jest spokojny, zabawny i bardzo troskliwy. Jest też całkowicie nieprzytomny w ciągu siedmiu minut każdej podróży samochodem. Standardowa procedura operacyjna. Uzupełniamy się." data-caption-hu="Nyugodt, vicces és nagyon gondoskodó. Emellett minden autóúton hét percen belül teljesen kiüti magát. Szokásos procedúra. Kiegészítjük egymást.">
+        <img src="photos/photo-10.jpg" alt="" loading="lazy">
+        <div class="masonry-caption">
+          <span data-lang="en">He is calm, funny and super caring. He is also completely unconscious within seven minutes of any car journey. Standard operating procedure. We balance each other out.</span>
+          <span data-lang="pl">Jest spokojny, zabawny i bardzo troskliwy. Jest też całkowicie nieprzytomny w ciągu siedmiu minut każdej podróży samochodem. Standardowa procedura operacyjna. Uzupełniamy się.</span>
+          <span data-lang="hu">Nyugodt, vicces és nagyon gondoskodó. Emellett minden autóúton hét percen belül teljesen kiüti magát. Szokásos procedúra. Kiegészítjük egymást.</span>
+        </div>
+      </div>
+      <div class="masonry-item" data-src="photos/photo-11.jpg" data-caption="Things he does for love: obstacle races in the mud. Things that happened: he actually loved it. Things that also happened: Joanna almost broke her leg. Two months before the wedding. We are fine. See you July 31st." data-caption-pl="To co robi dla miłości: biegi przeszkodowe w błocie. Co się stało: naprawdę mu się spodobało. Co się też stało: Joanna prawie złamała nogę, bo robienie sobie krzywdy to jej specjalizacja. Dwa miesiące przed ślubem. Wszystko w porządku. Do zobaczenia 31 lipca." data-caption-hu="Amit szerelemből megtesz az ember: akadálypályás verseny a sárban. Ami történt: tényleg megszerette. Ami még történt: Joanna majdnem eltörte a lábát. Két hónappal az esküvő előtt. Jól vagyunk. Találkozunk július 31-én.">
+        <img src="photos/photo-11.jpg" alt="" loading="lazy">
+        <div class="masonry-caption">
+          <span data-lang="en">Things he does for love: obstacle races in the mud. Things that happened: he actually loved it. Things that also happened: Joanna almost broke her leg. Two months before the wedding. We are fine. See you July 31st.</span>
+          <span data-lang="pl">To co robi dla miłości: biegi przeszkodowe w błocie. Co się stało: naprawdę mu się spodobało. Co się też stało: Joanna prawie złamała nogę, bo robienie sobie krzywdy to jej specjalizacja. Dwa miesiące przed ślubem. Wszystko w porządku. Do zobaczenia 31 lipca.</span>
+          <span data-lang="hu">Amit szerelemből megtesz az ember: akadálypályás verseny a sárban. Ami történt: tényleg megszerette. Ami még történt: Joanna majdnem eltörte a lábát. Két hónappal az esküvő előtt. Jól vagyunk. Találkozunk július 31-én.</span>
+        </div>
+      </div>
+      <div class="masonry-item" data-src="photos/photo-13.jpg" data-caption="Lake, sun, a borrowed dog and absolutely nothing to do. This is what happiness looks like for us. The dog will be permanent eventually. We have a plan. The plan involves first stopping being completely feral travellers." data-caption-pl="Jezioro, słońce, pożyczony pies i absolutnie nic do roboty. Tak wygląda szczęście dla nas. Kiedyś piesek zagości w naszym życiu na stałe. Mamy plan. Plan zakłada najpierw przestanie być nienasyconymi podróżnikami." data-caption-hu="Tó, nap, kölcsönkutya és semmi különösebb teendő. Nálunk így néz ki a boldogság. A kutya egyszer majd állandó lesz. Van tervünk. A terv azzal kezdődik, hogy felhagyunk a teljesen vad utazós életmóddal.">
+        <img src="photos/photo-13.jpg" alt="" loading="lazy">
+        <div class="masonry-caption">
+          <span data-lang="en">Lake, sun, a borrowed dog and absolutely nothing to do. This is what happiness looks like for us. The dog will be permanent eventually. We have a plan. The plan involves first stopping being completely feral travellers.</span>
+          <span data-lang="pl">Jezioro, słońce, pożyczony pies i absolutnie nic do roboty. Tak wygląda szczęście dla nas. Kiedyś piesek zagości w naszym życiu na stałe. Mamy plan. Plan zakłada najpierw przestanie być nienasyconymi podróżnikami.</span>
+          <span data-lang="hu">Tó, nap, kölcsönkutya és semmi különösebb teendő. Nálunk így néz ki a boldogság. A kutya egyszer majd állandó lesz. Van tervünk. A terv azzal kezdődik, hogy felhagyunk a teljesen vad utazós életmóddal.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="gallery-share">
+    <p>
+      <span data-lang="en">After the wedding, send all your photos and videos here.</span>
+      <span data-lang="pl">Po weselu wyślij tu wszystkie swoje zdjęcia i filmy.</span>
+      <span data-lang="hu">Az esküvő után küldd ide az összes fotódat és videódat.</span>
+    </p>
+    <a href="https://photos.app.goo.gl/hdP6eUXNEeS5AkAx9" target="_blank" rel="noopener" class="gallery-share-btn">
+      <i class="ti ti-upload"></i>
+      <span data-lang="en">Share your photos</span>
+      <span data-lang="pl">Wyślij swoje zdjęcia</span>
+      <span data-lang="hu">Fotók megosztása</span>
+    </a>
+  </div>
+</section>
+
+<!-- ── AFTER PARTY (hidden) ── -->
+<section id="afterparty">
+  <h2 class="ap-title">
+    <span data-lang="en">It's not over yet</span>
+    <span data-lang="pl">To jeszcze nie koniec</span>
+    <span data-lang="hu">Ez még nem ért véget</span>
+  </h2>
+  <div class="ap-upper">
+    <div class="ap-left-col">
+      <p class="ap-text">
+        <span data-lang="en">After the wedding, we are heading to an old barn on a friend's land for two days of nothing in particular. No signal, no schedule, no obligations — just an outdoor pool, volleyball, spikeball, and whatever games survived the wedding night. The kind of weekend where you lose track of time completely and go home slightly feral. Exactly the plan.</span>
+        <span data-lang="pl">Po weselu jedziemy do starej stodoły na ziemi przyjaciela na dwa dni niczego w szczególności. Zero zasięgu, żadnego planu, żadnych obowiązków — tylko basen na świeżym powietrzu, siatkówka, spikeball i cokolwiek z gier przeżyło noc weselną. Ten rodzaj weekendu, po którym całkowicie tracisz poczucie czasu i wracasz do domu lekko zdiczały. Dokładnie taki plan.</span>
+        <span data-lang="hu">Az esküvő után egy barátunk földjén lévő öreg csűrbe tartunk két nap semmittevésre. Nincs jel, nincs program, nincs kötelezettség — csak egy szabadtéri medence, röplabda, spikeball, és amennyi játék túlélte az esküvői éjszakát. Az a fajta hétvége, amikor teljesen elveszíted az időérzékedet és kicsit elvadulva térsz haza. Pontosan ez a terv.</span>
+      </p>
+      <div class="ap-cards">
+        <div class="ap-card">
+          <i class="ti ti-calendar"></i>
+          <div class="ap-card-title">
+            <span data-lang="en">When</span>
+            <span data-lang="pl">Kiedy</span>
+            <span data-lang="hu">Mikor</span>
+          </div>
+          <div class="ap-card-body">
+            <span data-lang="en">Saturday + Sunday after the wedding</span>
+            <span data-lang="pl">Sobota + niedziela po weselu</span>
+            <span data-lang="hu">Az esküvő utáni szombat + vasárnap</span>
+          </div>
+        </div>
+        <div class="ap-card">
+          <i class="ti ti-swimming"></i>
+          <div class="ap-card-title">
+            <span data-lang="en">What's there</span>
+            <span data-lang="pl">Co robimy</span>
+            <span data-lang="hu">Mi lesz ott</span>
+          </div>
+          <div class="ap-card-body">
+            <span data-lang="en">Tents, pool, games from the wedding, nature and peace</span>
+            <span data-lang="pl">Namioty, basen, gry z wesela, natura i spokój</span>
+            <span data-lang="hu">Sátrak, medence, esküvői játékok, természet és csend</span>
+          </div>
+        </div>
+        <div class="ap-card">
+          <i class="ti ti-wifi-off"></i>
+          <div class="ap-card-title">
+            <span data-lang="en">What's not there</span>
+            <span data-lang="pl">Czego nie ma</span>
+            <span data-lang="hu">Mi nincs ott</span>
+          </div>
+          <div class="ap-card-body">
+            <span data-lang="en">Internet. And that's the whole point.</span>
+            <span data-lang="pl">Internetu. I to jest właśnie piękne.</span>
+            <span data-lang="hu">Internet. És ez a lényeg.</span>
+          </div>
+        </div>
+      </div>
+      <a href="https://maps.google.com/?q=51.625917,21.092306" target="_blank" rel="noopener" class="maps-btn" style="align-self:flex-start">
+        <i class="ti ti-map-pin"></i>
+        <span data-lang="en">Get directions</span>
+        <span data-lang="pl">Prowadź do miejsca</span>
+        <span data-lang="hu">Útvonaltervezés</span>
+      </a>
+    </div>
+    <img src="photos/afterparty.jpg" alt="After party" class="ap-photo">
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-names">Joanna &amp; Balázs</div>
+  <div class="footer-date">31 · 07 · 2026</div>
+</footer>
+
+<!-- ── LIGHTBOX ── -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lightbox-close" id="lb-close" aria-label="Close"><i class="ti ti-x"></i></button>
+  <img id="lb-img" src="" alt="">
+  <div class="lightbox-caption" id="lb-caption"></div>
+</div>
+
+<script>
+  /* ── LANGUAGE SWITCHING ── */
+  let currentLang = 'en';
+
+  function setLanguage(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.style.display = el.dataset.lang === lang ? '' : 'none';
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const isActive = btn.dataset.langBtn === lang;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+    document.documentElement.lang = lang;
+    currentLang = lang;
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLanguage(btn.dataset.langBtn));
+  });
+
+  // Init: show EN, hide PL + HU
+  setLanguage('en');
+
+  /* ── COUNTDOWN ── */
+  // Wedding: 31 July 2026 16:00 Warsaw (CEST = UTC+2)
+  const weddingUTC = new Date('2026-07-31T14:00:00Z');
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = weddingUTC - now;
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent = '0';
+      document.getElementById('cd-hours').textContent = '00';
+      document.getElementById('cd-mins').textContent = '00';
+      document.getElementById('cd-secs').textContent = '00';
+      return;
+    }
+    const days  = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins  = Math.floor((diff % 3600000) / 60000);
+    const secs  = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent  = days;
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('cd-mins').textContent  = String(mins).padStart(2,'0');
+    document.getElementById('cd-secs').textContent  = String(secs).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  /* ── SCROLL ANIMATIONS ── */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const delay = el.dataset.delay || 0;
+        setTimeout(() => el.classList.add('visible'), delay);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  // Timeline items
+  document.querySelectorAll('.timeline-item').forEach((el, i) => {
+    el.dataset.delay = i * 100;
+    observer.observe(el);
+  });
+
+  // Info cards
+  document.querySelectorAll('.info-card').forEach((el, i) => {
+    el.dataset.delay = i * 80;
+    observer.observe(el);
+  });
+
+  /* ── PASSWORD ── */
+  const passwords = {
+    'showme':                    'gallery',
+    'jeszczepolskaniezginela':   'afterparty',
+    'Istenalddmegamagyart':      'afterparty'
+  };
+
+  function checkPassword() {
+    const val = document.getElementById('pw-input').value.trim();
+    const target = passwords[val];
+    if (target === 'gallery') {
+      unlockSection('gallery');
+    } else if (target === 'afterparty') {
+      unlockSection('afterparty');
+    } else {
+      showPwError();
+    }
+  }
+
+  function unlockSection(id) {
+    const section = document.getElementById(id);
+    section.style.display = 'block';
+    // Re-run language display for newly visible elements
+    setLanguage(currentLang);
+    setTimeout(() => section.scrollIntoView({ behavior: 'smooth' }), 80);
+    document.getElementById('pw-input').value = '';
+  }
+
+  function showPwError() {
+    const input = document.getElementById('pw-input');
+    const err = document.getElementById('pw-error');
+    input.classList.add('error');
+    err.style.display = 'block';
+    // Re-apply language to error spans
+    err.querySelectorAll('[data-lang]').forEach(el => {
+      el.style.display = el.dataset.lang === currentLang ? '' : 'none';
+    });
+    setTimeout(() => {
+      input.classList.remove('error');
+      err.style.display = 'none';
+    }, 2000);
+  }
+
+  document.getElementById('pw-btn').addEventListener('click', checkPassword);
+  document.getElementById('pw-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') checkPassword();
+  });
+
+  /* ── LIGHTBOX ── */
+  document.querySelectorAll('.masonry-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const lb = document.getElementById('lightbox');
+      document.getElementById('lb-img').src = item.dataset.src;
+      document.getElementById('lb-caption').textContent = item.dataset.caption;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+    document.getElementById('lb-img').src = '';
+  }
+
+  document.getElementById('lb-close').addEventListener('click', e => {
+    e.stopPropagation();
+    closeLightbox();
+  });
+
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeLightbox();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // Prevent caption/img clicks from closing lightbox
+  document.getElementById('lb-img').addEventListener('click', e => e.stopPropagation());
+  document.getElementById('lb-caption').addEventListener('click', e => e.stopPropagation());
+</script>
+</body>
+</html>
